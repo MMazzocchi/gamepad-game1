@@ -1,4 +1,8 @@
 $(function() {
+  function setupDisplay() {
+    var renderer = new THREE.WebGLRenderer();
+  };
+
   function setupPlayerList(player_list, client) {
 
     var html = "<h1>Select player ID:</h1>";

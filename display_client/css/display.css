@@ -1,9 +1,9 @@
-.base {
-  text-align: center;
+body: {
+  padding: 0px;
+  margin: 0px;
 }
 
-.divider {
+#content {
   width: 100%;
-  border-bottom: 1px solid black;
-  padding 5px;
+  height: 100%;
 }
