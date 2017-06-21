@@ -1,0 +1,12 @@
+{
+  "name": "gamepad-game1",
+  "version": "0.0.1",
+  "main": "index.js",
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "express": "^4.15.3",
+    "gamepad-server-plugin": "file:../gamepad",
+    "jquery": "^3.2.1",
+    "socket.io": "^2.0.3"
+  }
+}
