@@ -3,6 +3,9 @@ var Game = function(renderer, client) {
   this.client = client;
   this.renderer = renderer;
 
+  this.effect = new THREE.StereoEffect(this.renderer);
+  this.effect.setSize(window.innerWidth, window.innerHeight);
+
   this.camera = new THREE.PerspectiveCamera(75,
     window.innerWidth / window.innerHeight, 1, 10000);
   this.camera.position.z = 1000;
@@ -22,7 +25,7 @@ var Game = function(renderer, client) {
 
 Game.prototype.render = function() {
   this.controls.update();
-  this.renderer.render(this.scene, this.camera);
+  this.effect.render(this.scene, this.camera);
 
   var dyr = this.client.getState('axis', 0);
   if(dyr != undefined) {
@@ -47,4 +50,5 @@ Game.prototype.render = function() {
 Game.prototype.setSize = function(width, height) {
   this.camera.aspect = window.innerWidth / window.innerHeight;
   this.camera.updateProjectionMatrix();
+  this.effect.setSize(window.innerWidth, window.innerHeight);
 };
