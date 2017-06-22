@@ -7,7 +7,7 @@ var Game = function(renderer, client) {
     window.innerWidth / window.innerHeight, 1, 10000);
   this.camera.position.z = 1000;
 
-//  this.controls = new THREE.DeviceOrientationControls(camera);
+  this.controls = new THREE.DeviceOrientationControls(this.camera);
   this.scene = new THREE.Scene();
 
   var geometry = new THREE.BoxGeometry(200, 200, 200);
@@ -21,6 +21,7 @@ var Game = function(renderer, client) {
 };
 
 Game.prototype.render = function() {
+  this.controls.update();
   this.renderer.render(this.scene, this.camera);
 
   var dyr = this.client.getState('axis', 0);
