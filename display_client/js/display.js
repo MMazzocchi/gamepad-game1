@@ -19,16 +19,17 @@ $(function() {
 
     var html = "<h1>Select player ID:</h1>";
     for(var i = 0; i < player_list.length; i++) {
-      html += '<div><a class="btn btn-default choose-player-btn">'+
+      html += '<div><input type="button" class="choose-player-btn" value="'+
               player_list[i]+
-              '</a></div>';
+              '"/></div>';
     }
 
     $('body')[0].innerHTML = html;
 
     $('.choose-player-btn').click(function(e) {
       e.preventDefault();
-      var player_id = e.target.innerHTML;
+      console.log(e);
+      var player_id = e.target.value;
 
       $('body')[0].innerHTML = "";
 
