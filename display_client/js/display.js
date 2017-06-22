@@ -1,6 +1,18 @@
 $(function() {
-  function setupDisplay() {
+  function setupGame() {
     var renderer = new THREE.WebGLRenderer();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+
+    var game = new Game(renderer, client);
+
+    window.addEventListener( 'resize', function() {
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      game.setSize(window.innerWidth, window.innerHeight);
+    }, false );
+
+    document.body.appendChild(renderer.domElement);
+
+    return game;
   };
 
   function setupPlayerList(player_list, client) {
@@ -12,15 +24,16 @@ $(function() {
               '</a></div>';
     }
 
-    $('#content')[0].innerHTML = html;
+    $('body')[0].innerHTML = html;
 
     $('.choose-player-btn').click(function(e) {
       e.preventDefault();
       var player_id = e.target.innerHTML;
 
-      $('#content')[0].innerHTML = "";
+      $('body')[0].innerHTML = "";
 
       client.selectPlayer(player_id);
+      var game = setupGame(client);
     });
   };
 
