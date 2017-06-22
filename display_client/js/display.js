@@ -28,7 +28,6 @@ $(function() {
 
     $('.choose-player-btn').click(function(e) {
       e.preventDefault();
-      console.log(e);
       var player_id = e.target.value;
 
       $('body')[0].innerHTML = "";
